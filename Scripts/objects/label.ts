@@ -59,7 +59,6 @@ module objects {
 
             this.x = x;
             this.y = y;
-            console.log(this.x);
         }
         // private methods
 

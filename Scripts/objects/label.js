@@ -39,7 +39,6 @@ var objects;
             }
             _this.x = x;
             _this.y = y;
-            console.log(_this.x);
             return _this;
         }
         Object.defineProperty(Label.prototype, "Width", {

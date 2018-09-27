@@ -4,7 +4,7 @@
   "description": "COMP397 - F2018 - Lesson 1 CreateJS Demo",
   "main": "index.js",
   "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson1.git",
-  "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
+  "author": "Kevin Yuayan <yuayankevin@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "easeljs": "^1.0.2",
