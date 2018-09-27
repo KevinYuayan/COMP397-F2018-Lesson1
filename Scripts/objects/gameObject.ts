@@ -1,5 +1,5 @@
 module Objects {
-    export class Player extends createjs.Bitmap {
+    export abstract class gameObject extends createjs.Bitmap{
         // private instance variables
         private _width:number;
         private _height:number;
@@ -35,23 +35,25 @@ module Objects {
             this._halfHeight = newValue;
         } 
 
-        // constructors
-        constructor() {
-            super(managers.Game.assetManager.getResult("plane"));
+        // constructor
+
+        constructor(imageString:string) {
+            super(managers.Game.assetManager.getResult(imageString));
             this.Start();
 
         }
-
-
         // private methods
-
-        // public methods
-        public Start():void {
+        private _initialize():void {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
 
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
+        }
+
+
+        // public methods
+        public Start():void {
 
             this.y = 435;
         }
@@ -69,6 +71,13 @@ module Objects {
 
         }
 
+        public Reset():void {
 
+        }
+
+        public Destroy():void {
+
+        }
+        
     }
 }
