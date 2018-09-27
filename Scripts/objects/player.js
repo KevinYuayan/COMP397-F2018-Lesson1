@@ -15,60 +15,17 @@ var Objects;
 (function (Objects) {
     var Player = /** @class */ (function (_super) {
         __extends(Player, _super);
+        // private instance variables
+        // public properties
         // constructors
         function Player() {
-            var _this = _super.call(this, managers.Game.assetManager.getResult("plane")) || this;
+            var _this = _super.call(this, "plane") || this;
             _this.Start();
             return _this;
         }
-        Object.defineProperty(Player.prototype, "Width", {
-            // public properties
-            get: function () {
-                return this._width;
-            },
-            set: function (newValue) {
-                this._width = newValue;
-                this.HalfWidth = this._width * 0.5;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Player.prototype, "Height", {
-            get: function () {
-                return this._height;
-            },
-            set: function (newValue) {
-                this._height = newValue;
-                this.HalfHeight = this._height * 0.5;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Player.prototype, "HalfWidth", {
-            get: function () {
-                return this._halfWidth;
-            },
-            set: function (newValue) {
-                this._halfWidth = newValue;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Player.prototype, "HalfHeight", {
-            get: function () {
-                return this._halfHeight;
-            },
-            set: function (newValue) {
-                this._halfHeight = newValue;
-            },
-            enumerable: true,
-            configurable: true
-        });
         // private methods
         // public methods
         Player.prototype.Start = function () {
-            this.Width = this.getBounds().width;
-            this.Height = this.getBounds().height;
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
             this.y = 435;
@@ -83,7 +40,7 @@ var Objects;
             }
         };
         return Player;
-    }(createjs.Bitmap));
+    }(Objects.gameObject));
     Objects.Player = Player;
 })(Objects || (Objects = {}));
 //# sourceMappingURL=player.js.map

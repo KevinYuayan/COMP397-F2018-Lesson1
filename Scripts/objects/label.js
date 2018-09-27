@@ -11,8 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var Objects;
+(function (Objects) {
     var Label = /** @class */ (function (_super) {
         __extends(Label, _super);
         // constructor
@@ -86,6 +86,6 @@ var objects;
         });
         return Label;
     }(createjs.Text));
-    objects.Label = Label;
-})(objects || (objects = {}));
+    Objects.Label = Label;
+})(Objects || (Objects = {}));
 //# sourceMappingURL=label.js.map

@@ -16,9 +16,14 @@ var Objects;
     var gameObject = /** @class */ (function (_super) {
         __extends(gameObject, _super);
         // constructor
+        /**
+         *Creates an instance of gameObject.
+         * @param {string} imageString
+         * @memberof gameObject
+         */
         function gameObject(imageString) {
             var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
-            _this.Start();
+            _this._initialize();
             return _this;
         }
         Object.defineProperty(gameObject.prototype, "Width", {
@@ -68,21 +73,12 @@ var Objects;
         gameObject.prototype._initialize = function () {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
-            this.regX = this.HalfWidth;
-            this.regY = this.HalfHeight;
+            this.Start();
         };
         // public methods
         gameObject.prototype.Start = function () {
-            this.y = 435;
         };
         gameObject.prototype.Update = function () {
-            this.x = managers.Game.stage.mouseX;
-            if (this.x > 640 - this.HalfWidth) {
-                this.x = 640 - this.HalfWidth;
-            }
-            if (this.x < this.HalfWidth) {
-                this.x = this.HalfWidth;
-            }
         };
         gameObject.prototype.Reset = function () {
         };

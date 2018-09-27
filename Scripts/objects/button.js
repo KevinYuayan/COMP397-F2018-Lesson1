@@ -11,10 +11,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var objects;
-(function (objects) {
+var Objects;
+(function (Objects) {
     var Button = /** @class */ (function (_super) {
         __extends(Button, _super);
+        // private instance variables
+        // public properties
         // constructor
         /**
          *Creates an instance of Button.
@@ -27,9 +29,7 @@ var objects;
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
-            var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
-            _this.Width = _this.getBounds().width;
-            _this.Height = _this.getBounds().height;
+            var _this = _super.call(this, imageString) || this;
             if (isCentered) {
                 _this.regX = _this.HalfWidth;
                 _this.regY = _this.HalfHeight;
@@ -41,49 +41,6 @@ var objects;
             _this.on("mouseout", _this._out);
             return _this;
         }
-        Object.defineProperty(Button.prototype, "Width", {
-            // public properties
-            get: function () {
-                return this._width;
-            },
-            set: function (newValue) {
-                this._width = newValue;
-                this.HalfWidth = this._width * 0.5;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Button.prototype, "Height", {
-            get: function () {
-                return this._height;
-            },
-            set: function (newValue) {
-                this._height = newValue;
-                this.HalfHeight = this._height * 0.5;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Button.prototype, "HalfWidth", {
-            get: function () {
-                return this._halfWidth;
-            },
-            set: function (newValue) {
-                this._halfWidth = newValue;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Button.prototype, "HalfHeight", {
-            get: function () {
-                return this._halfHeight;
-            },
-            set: function (newValue) {
-                this._halfHeight = newValue;
-            },
-            enumerable: true,
-            configurable: true
-        });
         // private methods
         // event handlers
         Button.prototype._over = function (event) {
@@ -93,7 +50,7 @@ var objects;
             this.alpha = 1.0; // 100% opacity
         };
         return Button;
-    }(createjs.Bitmap));
-    objects.Button = Button;
-})(objects || (objects = {}));
+    }(Objects.gameObject));
+    Objects.Button = Button;
+})(Objects || (Objects = {}));
 //# sourceMappingURL=button.js.map

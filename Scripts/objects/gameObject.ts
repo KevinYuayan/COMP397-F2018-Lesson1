@@ -36,38 +36,30 @@ module Objects {
         } 
 
         // constructor
-
+        /**
+         *Creates an instance of gameObject.
+         * @param {string} imageString
+         * @memberof gameObject
+         */
         constructor(imageString:string) {
             super(managers.Game.assetManager.getResult(imageString));
-            this.Start();
-
+            this._initialize();
         }
+        
         // private methods
         private _initialize():void {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
-
-            this.regX = this.HalfWidth;
-            this.regY = this.HalfHeight;
+            this.Start();
         }
 
 
         // public methods
         public Start():void {
 
-            this.y = 435;
         }
 
         public Update():void {
-            this.x = managers.Game.stage.mouseX;
-
-            if(this.x > 640 - this.HalfWidth){
-                this.x = 640 - this.HalfWidth;
-            }
-
-            if(this.x < this.HalfWidth){
-                this.x = this.HalfWidth;
-            }
 
         }
 
