@@ -1,5 +1,6 @@
 module objects{
     export class Button extends gameObject {
+        
         // private instance variables
 
         // public properties
@@ -38,5 +39,18 @@ module objects{
 
         }
         // public methods
+
+        public Start(): void {
+            throw new Error("Method not implemented.");
+        }
+        public Update(): void {
+            throw new Error("Method not implemented.");
+        }
+        public Reset(): void {
+            throw new Error("Method not implemented.");
+        }
+        public Destroy(): void {
+            throw new Error("Method not implemented.");
+        }
     }
 }

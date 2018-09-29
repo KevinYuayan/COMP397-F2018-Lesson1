@@ -4,6 +4,7 @@
     var canvas;
     var stage;
     var assetManager;
+    // Game objects
     var ocean;
     var player;
     var assetManifest = [

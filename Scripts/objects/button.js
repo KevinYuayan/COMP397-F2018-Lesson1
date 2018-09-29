@@ -49,6 +49,19 @@ var objects;
         Button.prototype._out = function (event) {
             this.alpha = 1.0; // 100% opacity
         };
+        // public methods
+        Button.prototype.Start = function () {
+            throw new Error("Method not implemented.");
+        };
+        Button.prototype.Update = function () {
+            throw new Error("Method not implemented.");
+        };
+        Button.prototype.Reset = function () {
+            throw new Error("Method not implemented.");
+        };
+        Button.prototype.Destroy = function () {
+            throw new Error("Method not implemented.");
+        };
         return Button;
     }(objects.gameObject));
     objects.Button = Button;

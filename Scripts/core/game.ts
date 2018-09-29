@@ -5,6 +5,7 @@
     let stage:createjs.Stage;
     let assetManager:createjs.LoadQueue;
     
+    // Game objects
     let ocean:objects.Ocean;
     let player:objects.Player;
 
