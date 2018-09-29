@@ -1,4 +1,4 @@
-module Objects {
+module objects {
     export abstract class gameObject extends createjs.Bitmap{
         // private instance variables
         private _width:number;
@@ -55,21 +55,13 @@ module Objects {
 
 
         // public methods
-        public Start():void {
+        public abstract Start():void 
 
-        }
+        public abstract Update():void 
 
-        public Update():void {
+        public abstract Reset():void 
 
-        }
-
-        public Reset():void {
-
-        }
-
-        public Destroy():void {
-
-        }
+        public abstract Destroy():void 
         
     }
 }

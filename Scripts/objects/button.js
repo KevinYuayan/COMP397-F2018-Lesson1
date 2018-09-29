@@ -11,8 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Objects;
-(function (Objects) {
+var objects;
+(function (objects) {
     var Button = /** @class */ (function (_super) {
         __extends(Button, _super);
         // private instance variables
@@ -50,7 +50,7 @@ var Objects;
             this.alpha = 1.0; // 100% opacity
         };
         return Button;
-    }(Objects.gameObject));
-    Objects.Button = Button;
-})(Objects || (Objects = {}));
+    }(objects.gameObject));
+    objects.Button = Button;
+})(objects || (objects = {}));
 //# sourceMappingURL=button.js.map

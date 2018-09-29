@@ -11,8 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Objects;
-(function (Objects) {
+var objects;
+(function (objects) {
     var gameObject = /** @class */ (function (_super) {
         __extends(gameObject, _super);
         // constructor
@@ -75,17 +75,8 @@ var Objects;
             this.Height = this.getBounds().height;
             this.Start();
         };
-        // public methods
-        gameObject.prototype.Start = function () {
-        };
-        gameObject.prototype.Update = function () {
-        };
-        gameObject.prototype.Reset = function () {
-        };
-        gameObject.prototype.Destroy = function () {
-        };
         return gameObject;
     }(createjs.Bitmap));
-    Objects.gameObject = gameObject;
-})(Objects || (Objects = {}));
+    objects.gameObject = gameObject;
+})(objects || (objects = {}));
 //# sourceMappingURL=gameObject.js.map

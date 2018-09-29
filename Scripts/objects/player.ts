@@ -1,5 +1,6 @@
-module Objects {
+module objects {
     export class Player extends gameObject {
+        
         // private instance variables
 
         // public properties
@@ -33,6 +34,14 @@ module Objects {
                 this.x = this.HalfWidth;
             }
 
+        }
+
+        public Reset(): void {
+            throw new Error("Method not implemented.");
+        }
+        
+        public Destroy(): void {
+            throw new Error("Method not implemented.");
         }
 
 

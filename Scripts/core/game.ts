@@ -4,16 +4,17 @@
     let canvas:HTMLCanvasElement;
     let stage:createjs.Stage;
     let assetManager:createjs.LoadQueue;
-
-    let player:Objects.Player;
+    
+    let ocean:objects.Ocean;
+    let player:objects.Player;
 
     let assetManifest = [
-        {id: "plane", src: "/Assets/images/plane.png"}
-        {id: "cloud", src: "/Assets/images/cloud.png"}
-        {id: "island", src: "/Assets/images/island.png"}
-        {id: "ocean", src: "/Assets/images/ocean.gif"}
-        {id: "engineSound", src: "/Assets/audio/engine.ogg"}
-        {id: "thunderSound", src: "/Assets/audio/thunder.ogg"}
+        {id: "plane", src: "/Assets/images/plane.png"},
+        {id: "cloud", src: "/Assets/images/cloud.png"},
+        {id: "island", src: "/Assets/images/island.png"},
+        {id: "ocean", src: "/Assets/images/ocean.gif"},
+        {id: "engineSound", src: "/Assets/audio/engine.ogg"},
+        {id: "thunderSound", src: "/Assets/audio/thunder.ogg"},
         {id: "yaySound", src: "/Assets/audio/yay.ogg"}
         
     ]
@@ -40,13 +41,21 @@
 
     // this is the main game loop
     function Update():void {
+        player.Update();
+        ocean.Update();
 
         stage.update();
-        player.Update();
+
     }
 
     function Main():void {
-        player = new Objects.Player();
+
+        // adds ocean to the stage
+        ocean = new objects.Ocean();
+        stage.addChild(ocean);
+
+         // adds player to the stage
+        player = new objects.Player();
         stage.addChild(player);
     }
 

@@ -11,8 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Objects;
-(function (Objects) {
+var objects;
+(function (objects) {
     var Player = /** @class */ (function (_super) {
         __extends(Player, _super);
         // private instance variables
@@ -39,8 +39,14 @@ var Objects;
                 this.x = this.HalfWidth;
             }
         };
+        Player.prototype.Reset = function () {
+            throw new Error("Method not implemented.");
+        };
+        Player.prototype.Destroy = function () {
+            throw new Error("Method not implemented.");
+        };
         return Player;
-    }(Objects.gameObject));
-    Objects.Player = Player;
-})(Objects || (Objects = {}));
+    }(objects.gameObject));
+    objects.Player = Player;
+})(objects || (objects = {}));
 //# sourceMappingURL=player.js.map

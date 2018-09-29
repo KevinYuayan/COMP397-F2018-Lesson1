@@ -4,6 +4,7 @@
     var canvas;
     var stage;
     var assetManager;
+    var ocean;
     var player;
     var assetManifest = [
         { id: "plane", src: "/Assets/images/plane.png" },
@@ -33,11 +34,16 @@
     }
     // this is the main game loop
     function Update() {
-        stage.update();
         player.Update();
+        ocean.Update();
+        stage.update();
     }
     function Main() {
-        player = new Objects.Player();
+        // adds ocean to the stage
+        ocean = new objects.Ocean();
+        stage.addChild(ocean);
+        // adds player to the stage
+        player = new objects.Player();
         stage.addChild(player);
     }
     window.addEventListener("load", Init);

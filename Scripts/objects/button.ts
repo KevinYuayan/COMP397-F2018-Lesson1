@@ -1,4 +1,4 @@
-module Objects{
+module objects{
     export class Button extends gameObject {
         // private instance variables
 
