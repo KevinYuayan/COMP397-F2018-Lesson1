@@ -51,16 +51,12 @@ var objects;
         };
         // public methods
         Button.prototype.Start = function () {
-            throw new Error("Method not implemented.");
         };
         Button.prototype.Update = function () {
-            throw new Error("Method not implemented.");
         };
         Button.prototype.Reset = function () {
-            throw new Error("Method not implemented.");
         };
         Button.prototype.Destroy = function () {
-            throw new Error("Method not implemented.");
         };
         return Button;
     }(objects.gameObject));

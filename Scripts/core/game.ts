@@ -4,20 +4,23 @@
     let canvas:HTMLCanvasElement;
     let stage:createjs.Stage;
     let assetManager:createjs.LoadQueue;
+
+    // State Objects
+    let currentScene:objects.Scene;
+    let currentState:config.Scene;
     
     // Game objects
-    let ocean:objects.Ocean;
-    let player:objects.Player;
 
     let assetManifest = [
+        {id: "startButton", src: "/Assets/images/startButton.png"},
+        {id: "restartButton", src: "/Assets/images/restartButton.png"},
         {id: "plane", src: "/Assets/images/plane.png"},
         {id: "cloud", src: "/Assets/images/cloud.png"},
         {id: "island", src: "/Assets/images/island.png"},
         {id: "ocean", src: "/Assets/images/ocean.gif"},
         {id: "engineSound", src: "/Assets/audio/engine.ogg"},
         {id: "thunderSound", src: "/Assets/audio/thunder.ogg"},
-        {id: "yaySound", src: "/Assets/audio/yay.ogg"}
-        
+        {id: "yaySound", src: "/Assets/audio/yay.ogg"}        
     ]
 
 
@@ -37,27 +40,44 @@
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60; // game will run at 60fps
         createjs.Ticker.on("tick", Update);
+
+        currentState = config.Scene.START;
+        managers.Game.currentState = config.Scene.START;
         Main();
     }
 
     // this is the main game loop
     function Update():void {
-        player.Update();
-        ocean.Update();
+        
+        if(currentState != managers.Game.currentState){
+            currentState = managers.Game.currentState;
+            Main();
+        }
 
         stage.update();
+        currentScene.Update();
 
     }
 
     function Main():void {
+        if(currentScene != null){
+            currentScene.Destroy();
+            stage.removeAllChildren();
+        }
 
-        // adds ocean to the stage
-        ocean = new objects.Ocean();
-        stage.addChild(ocean);
+        switch(currentState) {
+            case config.Scene.START:
+            currentScene = new scenes.Start;
+            break;
+            case config.Scene.PLAY:
+            currentScene = new scenes.Play;
+            break;
+            case config.Scene.OVER:
+            currentScene = new scenes.Over;
+            break;
+        }
+        stage.addChild(currentScene);
 
-         // adds player to the stage
-        player = new objects.Player();
-        stage.addChild(player);
     }
 
     window.addEventListener("load", Init);

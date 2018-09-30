@@ -13,39 +13,37 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Ocean = /** @class */ (function (_super) {
-        __extends(Ocean, _super);
-        // public properties
-        // constructor
-        function Ocean() {
-            return _super.call(this, "ocean") || this;
+    var Island = /** @class */ (function (_super) {
+        __extends(Island, _super);
+        function Island() {
+            return _super.call(this, "island") || this;
         }
         // private methods
-        Ocean.prototype._checkBounds = function () {
-            if (this.y >= 0) {
+        Island.prototype._move = function () {
+            this.y += this._verticalSpeed;
+        };
+        Island.prototype._checkBounds = function () {
+            if (this.y > 480 + this.Height) {
                 this.Reset();
             }
         };
-        Ocean.prototype._move = function () {
-            this.y += this.verticalSpeed;
-        };
         // public methods
-        Ocean.prototype.Start = function () {
+        Island.prototype.Start = function () {
             this.Reset();
-            this.verticalSpeed = 5; //5px per frame
         };
-        Ocean.prototype.Update = function () {
+        Island.prototype.Update = function () {
             this._move();
             this._checkBounds();
-            console.log(this.y);
         };
-        Ocean.prototype.Reset = function () {
-            this.y = -960;
+        Island.prototype.Reset = function () {
+            this._verticalSpeed = 5;
+            this.y = -this.Height;
+            this.x = Math.floor(Math.random() * (640 - this.Width) + this.HalfWidth);
         };
-        Ocean.prototype.Destroy = function () {
+        Island.prototype.Destroy = function () {
         };
-        return Ocean;
+        return Island;
     }(objects.gameObject));
-    objects.Ocean = Ocean;
+    objects.Island = Island;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=island.js.map

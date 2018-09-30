@@ -15,28 +15,54 @@ var scenes;
 (function (scenes) {
     var Play = /** @class */ (function (_super) {
         __extends(Play, _super);
-        // private instance variables
         // public properties
         // constructors
         function Play() {
-            return _super.call(this) || this;
+            var _this = _super.call(this) || this;
+            _this.Start();
+            return _this;
         }
         // private methods
         // public methods
         Play.prototype.Main = function () {
-            throw new Error("Method not implemented.");
+            // adds ocean to the stage
+            this._ocean = new objects.Ocean();
+            this.addChild(this._ocean);
+            // adds island to the scene
+            this._island = new objects.Island();
+            this.addChild(this._island);
+            // adds player to the stage
+            this._player = new objects.Player();
+            this.addChild(this._player);
+            // adds clouds to the scene
+            for (var count = 0; count < this._cloudNum; count++) {
+                this.addChild(this._clouds[count]);
+            }
         };
         Play.prototype.Start = function () {
-            throw new Error("Method not implemented.");
+            this._cloudNum = 3;
+            // must do this to instantiate the array
+            this._clouds = new Array();
+            // adds clouds to the array
+            for (var count = 0; count < this._cloudNum; count++) {
+                this._clouds[count] = new objects.Cloud();
+            }
+            this.Main();
         };
         Play.prototype.Update = function () {
-            throw new Error("Method not implemented.");
+            this._player.Update();
+            this._ocean.Update();
+            this._island.Update();
+            // updates each cloud in array
+            for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
+                var cloud = _a[_i];
+                cloud.Update();
+            }
         };
         Play.prototype.Reset = function () {
-            throw new Error("Method not implemented.");
         };
         Play.prototype.Destroy = function () {
-            throw new Error("Method not implemented.");
+            this.removeAllChildren();
         };
         return Play;
     }(objects.Scene));

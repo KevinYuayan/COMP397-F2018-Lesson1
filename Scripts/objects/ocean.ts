@@ -15,8 +15,9 @@ module objects{
         // private methods
 
         private _checkBounds():void {
-            if(this.y >= 0)
-            this.Reset();
+            if(this.y >= 0){
+                this.Reset();
+            }
         }
 
         private _move():void {
@@ -32,6 +33,7 @@ module objects{
         public Update(): void {
             this._move();
             this._checkBounds();
+            console.log(this.y);
         }
         public Reset(): void {
             this.y = -960;

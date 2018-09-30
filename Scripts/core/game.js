@@ -4,10 +4,13 @@
     var canvas;
     var stage;
     var assetManager;
+    // State Objects
+    var currentScene;
+    var currentState;
     // Game objects
-    var ocean;
-    var player;
     var assetManifest = [
+        { id: "startButton", src: "/Assets/images/startButton.png" },
+        { id: "restartButton", src: "/Assets/images/restartButton.png" },
         { id: "plane", src: "/Assets/images/plane.png" },
         { id: "cloud", src: "/Assets/images/cloud.png" },
         { id: "island", src: "/Assets/images/island.png" },
@@ -31,21 +34,36 @@
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60; // game will run at 60fps
         createjs.Ticker.on("tick", Update);
+        currentState = config.Scene.START;
+        managers.Game.currentState = config.Scene.START;
         Main();
     }
     // this is the main game loop
     function Update() {
-        player.Update();
-        ocean.Update();
+        if (currentState != managers.Game.currentState) {
+            currentState = managers.Game.currentState;
+            Main();
+        }
         stage.update();
+        currentScene.Update();
     }
     function Main() {
-        // adds ocean to the stage
-        ocean = new objects.Ocean();
-        stage.addChild(ocean);
-        // adds player to the stage
-        player = new objects.Player();
-        stage.addChild(player);
+        if (currentScene != null) {
+            currentScene.Destroy();
+            stage.removeAllChildren();
+        }
+        switch (currentState) {
+            case config.Scene.START:
+                currentScene = new scenes.Start;
+                break;
+            case config.Scene.PLAY:
+                currentScene = new scenes.Play;
+                break;
+            case config.Scene.OVER:
+                currentScene = new scenes.Over;
+                break;
+        }
+        stage.addChild(currentScene);
     }
     window.addEventListener("load", Init);
 })();
