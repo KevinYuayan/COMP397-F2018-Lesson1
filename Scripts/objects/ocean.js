@@ -37,7 +37,6 @@ var objects;
         Ocean.prototype.Update = function () {
             this._move();
             this._checkBounds();
-            console.log(this.y);
         };
         Ocean.prototype.Reset = function () {
             this.y = -960;

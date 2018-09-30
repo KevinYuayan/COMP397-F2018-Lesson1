@@ -77,7 +77,6 @@
             break;
         }
         stage.addChild(currentScene);
-
     }
 
     window.addEventListener("load", Init);

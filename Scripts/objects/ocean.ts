@@ -33,7 +33,6 @@ module objects{
         public Update(): void {
             this._move();
             this._checkBounds();
-            console.log(this.y);
         }
         public Reset(): void {
             this.y = -960;
