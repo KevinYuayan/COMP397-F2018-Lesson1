@@ -16,7 +16,7 @@ var scenes;
     var Play = /** @class */ (function (_super) {
         __extends(Play, _super);
         // public properties
-        // constructors
+        // constructor
         function Play() {
             var _this = _super.call(this) || this;
             _this.Start();
@@ -24,47 +24,55 @@ var scenes;
         }
         // private methods
         // public methods
+        Play.prototype.Start = function () {
+            this._cloudNum = 3;
+            // Instantiates a new Array container of Type objects.Cloud
+            this._clouds = new Array();
+            // Fill the Cloud Array with Clouds
+            for (var count = 0; count < this._cloudNum; count++) {
+                this._clouds[count] = new objects.Cloud();
+            }
+            // play background engine sound when the level starts
+            this._engineSound = createjs.Sound.play("engineSound");
+            this._engineSound.volume = 0.1;
+            this._engineSound.loop = -1; // loop forever
+            this.Main();
+        };
+        Play.prototype.Update = function () {
+            var _this = this;
+            this._ocean.Update();
+            this._player.Update();
+            this._island.Update();
+            // check if player and island are colliding
+            managers.Collision.Check(this._player, this._island);
+            // Update Each cloud in the Cloud Array
+            this._clouds.forEach(function (cloud) {
+                cloud.Update();
+                managers.Collision.Check(_this._player, cloud);
+            });
+        };
+        Play.prototype.Destroy = function () {
+            this.removeAllChildren();
+            this._engineSound.stop();
+        };
+        Play.prototype.Reset = function () { };
         Play.prototype.Main = function () {
-            // adds ocean to the stage
+            var _this = this;
+            // adds ocean to the scene
             this._ocean = new objects.Ocean();
             this.addChild(this._ocean);
             // adds island to the scene
             this._island = new objects.Island();
             this.addChild(this._island);
-            // adds player to the stage
+            // adds player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            // adds clouds to the scene
-            for (var count = 0; count < this._cloudNum; count++) {
-                this.addChild(this._clouds[count]);
-            }
-        };
-        Play.prototype.Start = function () {
-            this._cloudNum = 3;
-            // must do this to instantiate the array
-            this._clouds = new Array();
-            // adds clouds to the array
-            for (var count = 0; count < this._cloudNum; count++) {
-                this._clouds[count] = new objects.Cloud();
-            }
-            this.Main();
-        };
-        Play.prototype.Update = function () {
-            this._player.Update();
-            this._ocean.Update();
-            this._island.Update();
-            managers.Collision.Check(this._player, this._island);
-            // updates each cloud in array
-            for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
-                var cloud = _a[_i];
-                cloud.Update();
-                managers.Collision.Check(this._player, cloud);
-            }
-        };
-        Play.prototype.Reset = function () {
-        };
-        Play.prototype.Destroy = function () {
-            this.removeAllChildren();
+            // adds Each Cloud in the Cloud Array to the Scene
+            this._clouds.forEach(function (cloud) {
+                _this.addChild(cloud);
+            });
+            // add ScoreBoard UI to the Scene
+            managers.Game.scoreBoard.AddGameUI(this);
         };
         return Play;
     }(objects.Scene));

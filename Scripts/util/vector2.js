@@ -41,7 +41,7 @@ var util;
          * @memberof Vector2
          */
         Vector2.Distance = function (vec1, vec2) {
-            return Math.floor(Math.sqrt(Math.pow(vec1.x - vec2.x, 2) + Math.pow(vec1.y - vec2.y, 2)));
+            return Math.floor(Math.sqrt(Math.pow(vec2.x - vec1.x, 2) + Math.pow(vec2.y - vec1.y, 2)));
         };
         /**
          * This method returns the resultant vector when adding vec1 and vec2

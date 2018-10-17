@@ -34,8 +34,8 @@ var objects;
             get: function () {
                 return this._isColliding;
             },
-            set: function (colliding) {
-                this._isColliding = colliding;
+            set: function (newValue) {
+                this._isColliding = newValue;
             },
             enumerable: true,
             configurable: true
@@ -59,7 +59,7 @@ var objects;
         Actor.prototype.Destroy = function () {
         };
         return Actor;
-    }(objects.gameObject));
+    }(objects.GameObject));
     objects.Actor = Actor;
 })(objects || (objects = {}));
 //# sourceMappingURL=actor.js.map
