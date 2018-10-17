@@ -29,21 +29,24 @@ var objects;
         };
         // public methods
         Island.prototype.Start = function () {
+            _super.prototype.Start.call(this);
             this.Reset();
         };
         Island.prototype.Update = function () {
             this._move();
             this._checkBounds();
+            _super.prototype.Update.call(this);
         };
         Island.prototype.Reset = function () {
             this._verticalSpeed = 5;
             this.y = -this.Height;
             this.x = Math.floor(Math.random() * (640 - this.Width) + this.HalfWidth);
+            _super.prototype.Reset.call(this);
         };
         Island.prototype.Destroy = function () {
         };
         return Island;
-    }(objects.gameObject));
+    }(objects.Actor));
     objects.Island = Island;
 })(objects || (objects = {}));
 //# sourceMappingURL=island.js.map

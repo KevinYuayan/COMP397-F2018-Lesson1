@@ -53,10 +53,12 @@ var scenes;
             this._player.Update();
             this._ocean.Update();
             this._island.Update();
+            managers.Collision.Check(this._player, this._island);
             // updates each cloud in array
             for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
                 var cloud = _a[_i];
                 cloud.Update();
+                managers.Collision.Check(this._player, cloud);
             }
         };
         Play.prototype.Reset = function () {

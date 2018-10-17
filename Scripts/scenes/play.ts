@@ -63,10 +63,12 @@ module scenes{
             this._player.Update();
             this._ocean.Update();
             this._island.Update();
+            managers.Collision.Check(this._player, this._island);
 
             // updates each cloud in array
-            for (const cloud of this._clouds) {
+            for (let cloud of this._clouds) {
                 cloud.Update();
+                managers.Collision.Check(this._player, cloud);
             }
         }
         public Reset(): void {

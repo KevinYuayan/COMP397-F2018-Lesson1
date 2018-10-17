@@ -1,5 +1,5 @@
 module objects {
-    export class Player extends gameObject {
+    export class Player extends Actor {
         
         // private instance variables
 
@@ -17,6 +17,7 @@ module objects {
 
         // public methods
         public Start():void {
+            super.Start();
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
 
@@ -33,15 +34,14 @@ module objects {
             if(this.x < this.HalfWidth){
                 this.x = this.HalfWidth;
             }
-
+            super.Update();
         }
 
         public Reset(): void {
-            throw new Error("Method not implemented.");
+            super.Reset();
         }
         
         public Destroy(): void {
-            throw new Error("Method not implemented.");
         }
 
 

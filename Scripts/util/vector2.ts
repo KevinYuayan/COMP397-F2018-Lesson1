@@ -29,7 +29,7 @@ module util {
          * @memberof Vector2
          */
         public static Distance(vec1:util.Vector2, vec2:util.Vector2):number {
-            return Math.floor(Math.sqrt(Math.pow(vec1.x - vec2.x, 2) + Math.pow(vec1.y - vec2.y, 2)));
+            return Math.floor(Math.sqrt(Math.pow(vec2.x - vec1.x, 2) + Math.pow(vec2.y - vec1.y, 2)));
         }
 
         /**

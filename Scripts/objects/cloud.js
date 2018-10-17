@@ -31,22 +31,25 @@ var objects;
         };
         // public methods
         Cloud.prototype.Start = function () {
+            _super.prototype.Start.call(this);
             this.Reset();
         };
         Cloud.prototype.Update = function () {
             this._move();
             this._checkBounds();
+            _super.prototype.Update.call(this);
         };
         Cloud.prototype.Reset = function () {
             this._verticalSpeed = Math.floor((Math.random() * 5) + 5); // speed from 5 to 10
             this._horizontalSpeed = Math.floor((Math.random() * 4) - 2); // speed from -2 to 2
             this.y = -this.Height;
             this.x = Math.floor(Math.random() * (640 - this.Width) + this.HalfWidth);
+            _super.prototype.Reset.call(this);
         };
         Cloud.prototype.Destroy = function () {
         };
         return Cloud;
-    }(objects.gameObject));
+    }(objects.Actor));
     objects.Cloud = Cloud;
 })(objects || (objects = {}));
 //# sourceMappingURL=cloud.js.map

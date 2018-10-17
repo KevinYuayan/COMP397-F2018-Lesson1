@@ -1,5 +1,5 @@
 module objects{
-    export class Ocean extends objects.gameObject{
+    export class Ocean extends objects.GameObject{
         
         // private instance variables
         private verticalSpeed:number;

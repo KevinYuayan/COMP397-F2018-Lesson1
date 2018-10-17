@@ -26,6 +26,7 @@ var objects;
         // private methods
         // public methods
         Player.prototype.Start = function () {
+            _super.prototype.Start.call(this);
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
             this.y = 435;
@@ -38,15 +39,15 @@ var objects;
             if (this.x < this.HalfWidth) {
                 this.x = this.HalfWidth;
             }
+            _super.prototype.Update.call(this);
         };
         Player.prototype.Reset = function () {
-            throw new Error("Method not implemented.");
+            _super.prototype.Reset.call(this);
         };
         Player.prototype.Destroy = function () {
-            throw new Error("Method not implemented.");
         };
         return Player;
-    }(objects.gameObject));
+    }(objects.Actor));
     objects.Player = Player;
 })(objects || (objects = {}));
 //# sourceMappingURL=player.js.map
